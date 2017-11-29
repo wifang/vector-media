@@ -33,7 +33,7 @@ class PersonsController extends Controller
             ->select('interests.name')
             ->distinct()     
             ->get();
-        if(!empty($person)){ 
+        if(!empty($person[0])){ 
              $data['person'] = $person;
              $data['interest'] = $interest;
 
