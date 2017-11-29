@@ -27,7 +27,7 @@ class PersonsController extends Controller
          $interest =  DB::table('person_interests')
             ->join('persons', 'person_interests.person_id', '=', 'persons.id')
             ->join('interests', 'person_interests.interest_id', '=', 'interests.id')
-            ->select('persons.first_name', 'interests.name')
+            ->select('persons.first_name', 'persons.last_name', 'persons.email', 'persons.age', 'persons.admission_date_time', 'persons.is_active', 'interests.name') 
             ->distinct()     
             ->get();
         if(!empty($person[0])){ 

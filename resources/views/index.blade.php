@@ -7,23 +7,17 @@
                 <div class="panel-heading"></div>
                  
                       <div class="panel-body">
-                          <b>Person:</b>
-                          <u>
-                              @foreach($data['person'] as $k=>$v)
-                                 @foreach( $v as $k1=>$v1)
-                                 <li><b>{{ ucfirst(str_replace('_', ' ',$k1)) }}</b> : {{$v1}}</li>
-                                 @endforeach
-                              @endforeach
-                          </u>
-                          <br>
-                          <b> Interests:</b>
+                        
+                          <b> output:</b>
                           <u>
                                 @foreach($data['interest'] as $k=>$v)
                                  @foreach( $v as $k1=>$v1)
-                                   <li><b>{{ ucfirst(str_replace('_', ' ',$k1)) }}</b> : {{$v1}}</li>
+                                 @if ($v1 == reset($v )) <br> @endif
+                                   <li><b>{{ ucfirst(str_replace('_', ' ',$k1)) }}</b> : {{$v1}}</li>                     
                                  @endforeach
-                              @endforeach
+                                @endforeach
                           </u>
+                          
                       </div>
             </div>
         </div>
