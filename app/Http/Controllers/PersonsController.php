@@ -33,11 +33,15 @@ class PersonsController extends Controller
             ->select('interests.name')
             ->distinct()     
             ->get();
-        
-      $data['person'] = $person;
-      $data['interest'] = $interest;
-         
-        return view('index', ['data'=>$data]);
+        if(!empty($person)){ 
+             $data['person'] = $person;
+             $data['interest'] = $interest;
+
+               return view('index', ['data'=>$data]);
+        }else{
+
+            return view('no_data');
+        }
     }
         
     public function post(Request $request)
@@ -88,7 +92,6 @@ class PersonsController extends Controller
        
       
        //return view('index');
-       
        
         return response()->json(['success' =>true
         ]);
