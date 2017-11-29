@@ -20,7 +20,7 @@
                           <u>
                                 @foreach($data['interest'] as $k=>$v)
                                  @foreach( $v as $k1=>$v1)
-                                   <li>{{$v1}}</li>
+                                   <li><b>{{ ucfirst(str_replace('_', ' ',$k1)) }}</b> : {{$v1}}</li>
                                  @endforeach
                               @endforeach
                           </u>
