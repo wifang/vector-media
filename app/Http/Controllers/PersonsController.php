@@ -80,8 +80,15 @@ class PersonsController extends Controller
        foreach ( $interests as $v){
            //save interest
            $interest = new Interest();
-           $interest->name = $v;
-           $interest->save();
+           $exist =  DB::table('interests')
+                ->where('name', $v)->first();
+           
+           if( !isset($exist)){
+                $interest->name = $v;
+                $interest->save();
+           }else{
+               $interest->id = $exist->id;
+           }
            
            // save person interest
            $person_interest = new Person_interests();

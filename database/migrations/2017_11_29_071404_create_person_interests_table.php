@@ -17,7 +17,7 @@ class CreatePersonInterestsTable extends Migration
             $table->increments('id');
             $table->integer('person_id');
             $table->foreign('person_id')->references('id')->on('persons');
-            $table->integer('interest_id')->unique();
+            $table->integer('interest_id');
             $table->foreign('interest_id')->references('id')->on('interests');
             $table->timestamps();
         });
